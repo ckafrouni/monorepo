@@ -58,6 +58,7 @@ jobs:
           script: |
             echo `date` "| User:" $USER >> /home/deploy/test
             source /home/deploy/.bashrc
+            echo $PATH
             cd ${{ secrets.SERVER_PATH }}
             git pull
             pnpm install
