@@ -56,6 +56,7 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
+            echo "Deploying to server..." >> /home/deploy/test
             cd ${{ secrets.SERVER_PATH }}
             git pull
             pnpm install
