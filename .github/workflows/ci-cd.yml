@@ -57,6 +57,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             echo `date` "| User:" $USER >> /home/deploy/test
+            source /home/deploy/.bashrc
             cd ${{ secrets.SERVER_PATH }}
             git pull
             pnpm install
