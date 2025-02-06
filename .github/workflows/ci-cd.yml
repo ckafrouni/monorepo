@@ -56,9 +56,14 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
+            # Set up nvm and node
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
             # Set up pnpm path explicitly
             export PNPM_HOME="/home/deploy/.local/share/pnpm"
             export PATH="$PNPM_HOME:$PATH"
+
             echo `date` "| User:" $USER >> /home/deploy/test
             cd ${{ secrets.SERVER_PATH }}
             git pull
