@@ -56,9 +56,10 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
+            # Set up pnpm path explicitly
+            export PNPM_HOME="/home/deploy/.local/share/pnpm"
+            export PATH="$PNPM_HOME:$PATH"
             echo `date` "| User:" $USER >> /home/deploy/test
-            source /home/deploy/.bashrc
-            echo $PATH
             cd ${{ secrets.SERVER_PATH }}
             git pull
             pnpm install
