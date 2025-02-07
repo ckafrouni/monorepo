@@ -73,14 +73,5 @@ jobs:
             pnpm install
             pnpm run build
 
-            # Stop any running PM2 processes
-            pnpm pm2 stop all || true
-
             # Start applications with PM2
-            pnpm run pm2:start
-
-            # Save PM2 process list
-            pnpm pm2 save
-
-            # Display PM2 status
-            pnpm pm2 status
+            pm2 start
