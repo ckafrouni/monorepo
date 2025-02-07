@@ -26,5 +26,14 @@ module.exports = {
         NODE_ENV: "production",
       },
     },
+    {
+      name: "whojoinsme",
+      cwd: "./apps/whojoinsme",
+      script: "node_modules/next/dist/bin/next",
+      args: "start --port 3033",
+      env: {
+        NODE_ENV: "production",
+      },
+    },
   ],
 };

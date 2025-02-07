@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Format files
+npm run format
+
+# Stage the formatted files
+git add -u
+
+# Run lint checks
+npm run lint
