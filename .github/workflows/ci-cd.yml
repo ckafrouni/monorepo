@@ -64,10 +64,23 @@ jobs:
             export PNPM_HOME="/home/deploy/.local/share/pnpm"
             export PATH="$PNPM_HOME:$PATH"
 
-            echo `date` "| User:" $USER >> /home/deploy/test
             cd ${{ secrets.SERVER_PATH }}
+
+            # Pull latest changes
             git pull
+
+            # Install dependencies and build
             pnpm install
             pnpm run build
-            pnpm run start
-            # pm2 restart all
+
+            # Stop any running PM2 processes
+            pnpm pm2 stop all || true
+
+            # Start applications with PM2
+            pnpm run pm2:start
+
+            # Save PM2 process list
+            pnpm pm2 save
+
+            # Display PM2 status
+            pnpm pm2 status
