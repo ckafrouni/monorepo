@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev --turbopack --port 3030 --hostname 0.0.0.0",
     "build": "next build",
-    "start": "next start",
+    "start": "next start --port 3030",
     "lint": "next lint --max-warnings 0",
     "check-types": "tsc --noEmit"
   },
