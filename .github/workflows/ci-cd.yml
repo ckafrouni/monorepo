@@ -74,6 +74,6 @@ jobs:
             pnpm run build
 
             # Start applications with PM2
-            pm2 start
+            pm2 reload all
             pm2 save
             pm2 status
